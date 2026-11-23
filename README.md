@@ -7,7 +7,7 @@
 **A/B testing, conversion uplift and experimentation intelligence — with statistics that are checked, and a
 dashboard that never claims more than the test supports.**
 
-<!-- LIVE-BADGE -->
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://experimentlab-ai-zubairlabs.streamlit.app)
 [![CI](https://github.com/muhammadzubair-data/experimentlab-ai-ab-testing-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/muhammadzubair-data/experimentlab-ai-ab-testing-intelligence/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-081329?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.50%2B-0EA5B7?logo=streamlit&logoColor=white)
@@ -41,7 +41,15 @@ Built by [ZubairLabs](https://zubairlabs.com) · Muhammad Zubair
 
 ## Live demo
 
-<!-- LIVE-SECTION -->
+**▶ [https://experimentlab-ai-zubairlabs.streamlit.app](https://experimentlab-ai-zubairlabs.streamlit.app)**
+
+Hosted on Streamlit Community Cloud (Python 3.12). After release the public app was checked in a browser:
+- the overview, diagnostics, segment explorer and sample-size planner load and match the local results;
+- the messy sample CSV uploads with the exact validation report above and is used on every page;
+- the export buttons are enabled (their file contents are checked by the Playwright suite);
+- **Remove upload** returns to the demo, and the dark theme renders.
+
+The free tier sleeps when idle, so the first visit can take a minute.
 
 ## What it does
 
@@ -98,6 +106,10 @@ The original demo has a **true +12% relative lift** (10.0% → 11.2%) and 2,500 
 - Device segments differ only by noise: no segment is significant after Holm adjustment, and the heterogeneity test
   gives p = 0.38. (The generator uses the same lift for every device.)
 - A larger scenario (20,000 users, same true lift) detects the effect: +0.98 points, p = 0.025.
+- **A false alarm worth knowing about:** on the messy upload sample (3,000 users), the heterogeneity test flags
+  Device (p = 0.011), driven by a Tablet swing of −9 points on about 100 users per arm. The generator uses the same
+  lift for every device, so this is chance. The app labels it "a hypothesis for a follow-up test, not a finding" —
+  which is exactly why segment results are treated as exploratory.
 
 ## What changed from v1
 
